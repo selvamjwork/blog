@@ -15,8 +15,7 @@ class CreatePersonalDetailsTable extends Migration
     {
         Schema::create('personal_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('name')->nullable();
+            $table->integer('user_id');            
             $table->string('gender')->length(10);
             $table->integer('age')->nullable();
             $table->integer('degree')->index()->default(0);
@@ -28,8 +27,6 @@ class CreatePersonalDetailsTable extends Migration
             $table->string('qualification')->nullable();
             $table->string('monthly_income')->nullable();
             $table->string('religion')->nullable();
-            $table->integer('caste')->index()->default(0);
-            $table->integer('subsect')->index()->default(0);
             $table->string('gothram')->nullable();
             $table->integer('marital_status')->index()->default(0);
             $table->timestamps();

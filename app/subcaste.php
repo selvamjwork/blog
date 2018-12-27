@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 class subcaste extends Model
 {
-    protected $table="subcastes";
+    protected $table="subcaste";
 
     public $timestamps = false;
 

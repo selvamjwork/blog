@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use DB;
+use App\caste;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -16,7 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'user_id', 'password', 'mobile', 'email',  'profile_pic', 'email_verified_at', 'mobile_verified', 'payment_completed', 'payment_expired_on', 'profile_completed', 'active', 'admin_id', 'is_registered_online'
+        'name','user_id', 'password', 'mobile', 'email',  'profile_pic', 'caste', 'subsect', 'email_verified_at', 'mobile_verified', 'payment_completed', 'payment_expired_on', 'profile_completed', 'active', 'admin_id', 'is_registered_online'
     ];
 
     /**
@@ -27,4 +31,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function updateValidate(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'string|max:255',
+            'mobile' => 'string|max:255',
+            
+        ]);
+    }
 }

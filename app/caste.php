@@ -20,7 +20,7 @@ class caste extends Model
 
     public function selectSubsect($id,$selectedSubsect)
     {
-    	$caste = caste::find($id);
+        $caste = caste::find($id);
     	$Subsect = subcaste::where('caste_id',$caste->id)->orderBy('subcaste_name','ASC')->get();
     	$subsectOptions = '<option value=""';
     	$subsectOptions.= empty($selectedSubsect)?'selected="selected"':"";

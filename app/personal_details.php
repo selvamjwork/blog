@@ -14,6 +14,6 @@ class personal_details extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'name', 'gender', 'age', 'degree', 'profession', 'mother_tongue', 'height', 'weight', 'qualification', 'monthly_income', 'religion', 'caste', 'subsect', 'gothram', 'marital_status'
+        'user_id', 'gender', 'age', 'degree', 'profession', 'mother_tongue', 'height', 'weight', 'qualification', 'monthly_income', 'religion', 'gothram', 'marital_status'
     ];
 }

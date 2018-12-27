@@ -92,20 +92,20 @@ class RegisterController extends Controller
         // dd($data,$id);
 
         $userData = User::create([
+            'name' => $data['name'],
             'user_id' => $id,
             'mobile' => $data['mobile'],
             'email' => $data['email'],
+            'caste' => $data['caste'],
             'password' => bcrypt($data['password']),
             'admin_id' => $data['district'],
             'is_registered_online' => '1',
         ]);
         $personalData = personal_details::create([
             'user_id' => $userData->id,
-            'name' => $data['name'],
             'gender' => $data['gender'],
             'age' => $data['age'],
             'district' => $data['district'],
-            'caste' => $data['caste'],
         ]);
         $birthData = birth_details::create([
             'user_id' => $userData->id,
